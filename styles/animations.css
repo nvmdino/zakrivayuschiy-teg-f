@@ -12,3 +12,66 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+@keyframes menu-item-selected {
+  from {
+    transform: translateX(0%);
+  } 
+  to {
+    transform: translateX(45%);
+  }
+  to {
+    transform: translateX(-20%);
+  }
+}
+
+@keyframes like-icon-scale {
+  0% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes sparkles {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: var(--like-icon-color);
+  }
+}
+
+.theme-menu__button:disabled::before {
+  animation: menu-item-selected 0.5s ease-in-out alternate infinite;
+}
+
+.like-icon.is-liked .frame {
+  transform-origin: center;
+  animation: like-icon-scale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.like-icon .starting {
+  transition: fill 0.3s ease-in-out;
+}
+
+.like-icon.is-liked .starting {
+  fill: var(--like-icon-color);
+}
+
+.like-icon .inside-fill {
+  transition: fill 0.3s 0.03s ease-in-out;
+}
+
+.like-icon.is-liked .inside-fill {
+  fill: var(--like-icon-color);
+}
+
+.like-icon.is-liked .sparkles {
+  transform-origin: center;
+  animation: sparkles 0.3s 0.3s ease-in-out alternate;
+}
