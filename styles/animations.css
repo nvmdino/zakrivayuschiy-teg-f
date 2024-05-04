@@ -46,7 +46,7 @@
 /* DISABLED THEME MENU ITEM */
 
 .theme-menu__button:disabled::before {
-  animation: menu-item-selected 0.5s linear alternate infinite;
+  animation: menu-item-selected 0.5s ease-in-out alternate infinite;
 }
 
 /* HOVER LIKE */
@@ -77,6 +77,10 @@
 
 /* mouse out */
 
+.like-icon .initial {
+  transition: fill 0.1s linear;
+}
+
 .like-icon .starting {
   transition: fill 0.3s 0.03s linear;
 }
@@ -105,10 +109,6 @@
 .like-icon.is-liked .initial {
   fill: var(--like-icon-color);
   transition: fill 0.3s 0.06s linear;
-}
-
-.like-icon.is-liked .inside-fill {
-  fill: var(--like-icon-color);
 }
 
 .like-icon.is-liked .sparkles {
